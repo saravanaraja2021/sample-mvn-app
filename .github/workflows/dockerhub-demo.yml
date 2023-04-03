@@ -48,8 +48,8 @@ jobs:
             USER_NAME : ${{ secrets.USER_NAME  }}
             
         run: |
-           sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}}
+           #sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}} -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
            sudo sleep 5
            sudo docker images
            sudo docker run -d  --name myapp -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}}
