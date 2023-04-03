@@ -18,7 +18,7 @@ jobs:
       run: mvn -B clean install --file pom.xml
     - name: Package with maven
       run: mvn package
-    - run: mkdir artifact && cp target/*.war artifact
+    - run: mkdir artifact && cp webapp/target/*.war artifact
     - uses: actions/upload-artifact@v2
       with:
        name: Package
