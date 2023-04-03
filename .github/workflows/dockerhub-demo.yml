@@ -52,7 +52,7 @@ jobs:
            ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
            sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}} 
-           sudo sleep 5
+           sudo sleep 3
            sudo docker images
            sudo docker run -d  --name myapp -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}}
            
