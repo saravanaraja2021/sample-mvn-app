@@ -48,6 +48,6 @@ jobs:
             USER_NAME : ${{ secrets.USER_NAME  }}
             
         run: |
-           docker pull ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}}
-           docker run -d  --name myapp -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}}
+           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}}
+           sudo docker run -d  --name myapp -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}}
            
