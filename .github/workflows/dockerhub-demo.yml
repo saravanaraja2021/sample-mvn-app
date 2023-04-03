@@ -48,8 +48,8 @@ jobs:
             USER_NAME : ${{ secrets.USER_NAME  }}
             
         run: |
-           echo ${{ secrets.AWS_PRIVATE_KEY  }} > private_key && chmod 600 private_key
-           ssh -o StrictHostKeyChecking=no -i private_key ${secrets.USER_NAME}@${secrets.HOSTNAME} 
+           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
            sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/mysample777:${{github.run_number}} 
            sudo sleep 5
