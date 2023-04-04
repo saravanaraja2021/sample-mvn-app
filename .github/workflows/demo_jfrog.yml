@@ -31,4 +31,4 @@ jobs:
       with:
        name: Package
        path: artifact  
-    - run: curl -uadmin:APrpmh86DntSxZEBUhrYRLZ32X -T webapp:${{ steps.project.outputs.version }}.war "{{secrets.JFROG_URI}}/webapp:${{ steps.project.outputs.version }}.war"  
+    - run: curl -uadmin:APrpmh86DntSxZEBUhrYRLZ32X -T webapp:${{ steps.project.outputs.version }}.war "${{secrets.JFROG_URI}}/webapp:${{ steps.project.outputs.version }}.war"  
