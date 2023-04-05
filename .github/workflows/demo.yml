@@ -48,6 +48,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:    
+      - uses: actions/checkout@v2
+      
+      - name: Extract Maven project version
+        run: echo ::set-output name=version::$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+        id: project
+      
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.8
         with:
