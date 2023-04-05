@@ -43,3 +43,20 @@ jobs:
          password:  ${{ secrets.DOCKER_PASSWORD }}
          repository: ${{ secrets.DOCKER_USERNAME }}/mysample777     
          tags: ${{ steps.project.outputs.version }}  
+  Deploy:
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    
+    steps:    
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.HOST_NAME }}
+          username: ${{ secrets.USER_NAME }}
+          key: ${{ secrets.AWS_PRIVATE_KEY }}
+          script: |
+           sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/mysample777:${{steps.project.outputs.version}} 
+           sudo sleep 3
+           sudo docker images
+           sudo docker run -d  --name myapp -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/mysample777:${{steps.project.outputs.version}}
