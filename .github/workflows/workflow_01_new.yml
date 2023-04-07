@@ -1,5 +1,7 @@
 name: workflow_01_new
-on: [push]
+on: 
+  repository_dispatch:
+    types: do-something
 
 jobs:
   build:
