@@ -1,4 +1,4 @@
-name: Experiment
+name: Experiment run 5pm
 on: 
   schedule:
   - cron: '0 17 * * *'
