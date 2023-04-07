@@ -1,4 +1,4 @@
-name: workflow_01
+name: workflow_01_new
 on: [push]
 
 jobs:
