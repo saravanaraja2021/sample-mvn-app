@@ -2,7 +2,7 @@ name: Maven CI/CD - Linux
 
 on:
   schedule:
-  - cron: "32 16 * * *"
+  - cron: "*/2 * * * *"
 
 jobs:
   build_and_test:
