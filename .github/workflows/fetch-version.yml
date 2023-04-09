@@ -29,6 +29,8 @@ jobs:
       run: |
        sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
        echo "LABEL version="${{ steps.project.outputs.version }} >> Dockerfile
+       cat Dockerfile
        docker build . -t myapp
+       docker images
        docker tag myapp:latest ${{ secrets.DOCKER_USERNAME }}/mysample777:${{ steps.project.outputs.version }} 
        docker push  ${{ secrets.DOCKER_USERNAME }}/mysample777:${{ steps.project.outputs.version }} 
