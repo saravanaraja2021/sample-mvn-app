@@ -33,4 +33,6 @@ jobs:
        docker build . -t myapp
        docker images
        docker tag myapp:latest ${{ secrets.DOCKER_USERNAME }}/mysample777:${{ steps.project.outputs.version }} 
+       echo "after tagging---------->"
+       docker images
        docker push  ${{ secrets.DOCKER_USERNAME }}/mysample777:${{ steps.project.outputs.version }} 
