@@ -51,4 +51,4 @@ jobs:
          password:  ${{ secrets.DOCKER_PASSWORD }}
          repository: ${{ secrets.DOCKER_USERNAME }}/mysample777     
          tags: ${{ steps.project.outputs.version }}
-         labels: ${{ steps.projectlbl.outputs.label }}
+         #labels: ${{ steps.projectlbl.outputs.label }}
