@@ -24,6 +24,9 @@ jobs:
 
     - name: Show extracted Maven project version
       run: echo ${{ steps.project.outputs.version }} 
+      
+    - name: Show extracted Maven project version
+      run: echo ${{ steps.projectlbl.outputs.label }} 
     
     - name: Build project with Maven
       run: mvn -B clean install --file pom.xml
