@@ -14,11 +14,11 @@ jobs:
       with:
         java-version: 14
 
-    - name: Set output
+    - name: version
       run: echo "version=`grep -iA 10 modelversion pom.xml  | grep version | sed 's/version//g' | sed 's/[<>/ ]//g'`" >> $GITHUB_OUTPUT
       id: project
       
-    - name: Set output
+    - name: label
       run: echo "label = `echo LABEL = ${{ steps.project.outputs.version }}`" >> $GITHUB_OUTPUT
       id: projectlbl
 
