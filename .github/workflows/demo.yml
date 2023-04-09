@@ -44,6 +44,7 @@ jobs:
          repository: ${{ secrets.DOCKER_USERNAME }}/mysample777     
          tags: ${{ steps.project.outputs.version }} 
          label: ${{ steps.project.outputs.version }}
+         
   Deploy:
     needs: build_and_test
     runs-on: ubuntu-latest
