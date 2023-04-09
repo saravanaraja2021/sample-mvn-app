@@ -19,7 +19,7 @@ jobs:
       id: project
       
     - name: Set output
-      run: echo "label = `echo LABEL = ${{ steps.project.outputs.version }}"` >> $GITHUB_OUTPUT
+      run: echo "label = `echo LABEL = ${{ steps.project.outputs.version }}`" >> $GITHUB_OUTPUT
       id: projectlbl
 
     - name: Show extracted Maven project version
