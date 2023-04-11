@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: print value
-         run: echo "${{ github.events.client_payload.VAR_1}}"
+         run: echo " ${{ github.event.client_payload.VAR_1 }}"
   call-workflow-passing-data:
     uses: saravanaraja2021/sample-mvn-app/.github/workflows/call_workfl.yml@main
     with:
-       name: "${{ github.events.client_payload.VAR_1}}"
+       name: "${{ github.event.client_payload.VAR_1 }}"
     
         
