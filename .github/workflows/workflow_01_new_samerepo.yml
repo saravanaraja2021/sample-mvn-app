@@ -10,6 +10,8 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Print input values
+        run: echo "CLOUD = ${{ github.event.client_payload.VAR_1 }} , SERVICE = ${{ github.event.client_payload.VAR_2 }}"  
       - name: Test
         run: |
           curl -X POST https://api.github.com/repos/saravanaraja2021/sample-mvn-app/dispatches \
