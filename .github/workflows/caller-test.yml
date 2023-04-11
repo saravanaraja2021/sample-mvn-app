@@ -9,7 +9,7 @@ jobs:
        - name: print value
          run: echo " ${{ github.event.client_payload.VAR_1 }}"
   call-workflow-passing-data:
-    uses: .github/workflows/call_workfl.yml@main
+    uses: ./.github/workflows/call_workfl.yml
     #saravanaraja2021/sample-mvn-app/.github/workflows/call_workfl.yml@main
     with:
        name: "${{ github.event.client_payload.VAR_1 }}"
