@@ -1,4 +1,4 @@
-name: workflow_01_new_samerepo
+name: caller test
 on: 
   repository_dispatch:
     types: first-job-caller
