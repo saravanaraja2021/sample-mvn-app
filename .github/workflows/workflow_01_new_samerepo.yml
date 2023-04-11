@@ -2,7 +2,7 @@
 name: workflow_01_new_samerepo
 on: 
   repository_dispatch:
-    types: fist-job
+    types: first-job-samerepo
 
 jobs:
   build:
