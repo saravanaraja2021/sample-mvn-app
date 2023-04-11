@@ -15,4 +15,4 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: print input
-        uses: echo "Hello ${{inputs.name}}"
+        run: echo "Hello"
