@@ -13,5 +13,4 @@ jobs:
         run: echo "CLOUD = ${{ github.event.client_payload.VAR_1 }} , SERVICE = ${{ github.event.client_payload.VAR_2 }}"  
       - name: Test
         uses: saravanaraja2021/sample-mvn-app/.github/workflows/call_workfl.yml@main
-        with:
-            name: "testuser"
+        
