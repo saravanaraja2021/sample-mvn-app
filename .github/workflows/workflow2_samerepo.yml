@@ -7,5 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Triggering Wokflow 2"
+     
+      - name: DATA RECEIVED FROM WORKFLOW 1
+        run:  echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
       - name: Checkout
         uses: actions/checkout@v2
