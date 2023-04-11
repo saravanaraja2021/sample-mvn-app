@@ -2,10 +2,10 @@ name: caller test
 on: 
   repository_dispatch:
     types: first-job-caller
-
 jobs:
   call-workflow-passing-data:
     uses: saravanaraja2021/sample-mvn-app/.github/workflows/call_workfl.yml@main
-    
+    with:
+       name: "{{ github.events.client_payload.VAR_1}}"
     
         
