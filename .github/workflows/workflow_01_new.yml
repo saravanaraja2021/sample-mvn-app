@@ -1,7 +1,7 @@
 name: workflow_01_new
 on: 
   repository_dispatch:
-    types: do-something
+    types: fist-job
 
 jobs:
   build:
