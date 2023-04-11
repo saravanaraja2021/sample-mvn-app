@@ -1,0 +1,10 @@
+name: workflow_test_03_child
+on:
+  repository_dispatch:
+    types: second-job-samerepo
+jobs:
+  workflow_02:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print output
+        run:  echo "SNO:${{ github.event.client_payload.SNO }} , CLOUD:${{ github.event.client_payload.SNO }}  "
