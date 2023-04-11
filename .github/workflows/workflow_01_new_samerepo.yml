@@ -18,4 +18,7 @@ jobs:
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACTIONS_KEY }} \
           --data '{"event_type": "second-job-samerepo", "client_payload": { "message": "job successful" } }'
-      - uses: actions/checkout@v3
+      - name: call workflow
+        uses: saravanaraja2021/sample-mvn-app/.github/workflows/call_workfl.yml@main
+        with:
+            name: "testuser"
