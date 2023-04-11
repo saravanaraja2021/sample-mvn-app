@@ -15,5 +15,5 @@ jobs:
           curl -X POST https://api.github.com/repos/saravanaraja2021/sample-mvn-app/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACTIONS_KEY }} \
-          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+          --data '{"event_type": "second-job-samerepo"}'
       - uses: actions/checkout@v3
