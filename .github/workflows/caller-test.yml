@@ -4,13 +4,8 @@ on:
     types: first-job-caller
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Print input values
-        run: echo "CLOUD = ${{ github.event.client_payload.VAR_1 }} , SERVICE = ${{ github.event.client_payload.VAR_2 }}"  
-      - name: Test
-        uses: saravanaraja2021/sample-mvn-app/.github/workflows/call_workfl.yml@main
+  call-workflow-passing-data:
+    uses: saravanaraja2021/sample-mvn-app/.github/workflows/call_workfl.yml@main
+    
+    
         
