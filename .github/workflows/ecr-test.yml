@@ -17,6 +17,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           aws_bucket: 'tnsforgithubaction'
           source_dir: 'models'
+          destination_dir: 'models'
           
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
