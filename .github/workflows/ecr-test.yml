@@ -1,6 +1,15 @@
-name: ECR TEST
-
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Source Directory'
+        required: true
+        type: string
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        default: '1.0' 
+        type: string
 
 jobs:
   build_and_test:
@@ -15,7 +24,7 @@ jobs:
       with:
           aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: 'tnsforgithubaction'
+          aws_bucket: 'tnsforgithubaction2'
           source_dir: 'models'
           destination_dir: 'models'
           
