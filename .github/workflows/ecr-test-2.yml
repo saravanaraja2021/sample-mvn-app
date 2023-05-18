@@ -38,7 +38,7 @@ jobs:
         #docker login $ECR_REGISTRY/mytestrepo -u $AWS_USER -p $AWS_PASSWORD
         ls -ltra ~/.docker
         sudo rm -rf "~/.docker/config.json"
-        aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $ECR_REGISTRY/mytestrepo
+        aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $ECR_REGISTRY
         docker tag mytestrepo:$IMAGE_TAG $ECR_REGISTRY/mytestrepo:$IMAGE_TAG 
         docker push $ECR_REGISTRY/mytestrepo:$IMAGE_TAG
       
