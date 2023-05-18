@@ -31,7 +31,7 @@ jobs:
       env:
         IMAGE_TAG: ${{ inputs.tags }}
         ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
-        MODEL_DIR: "{{ inputs.source_dir }}"
+        MODEL_DIR: "${{ inputs.source_dir }}"
         
       run: |
         echo "model folders $MODEL_DIR" 
