@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
+      source_dir:
         description: 'Source Directory'
         required: true
         type: string
@@ -25,7 +25,7 @@ jobs:
           aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           aws_bucket: 'tnsforgithubaction2'
-          source_dir: 'models'
+          source_dir: ${{ inputs.source_dir }}
           destination_dir: 'models'
           
     - name: Configure AWS credentials
@@ -43,7 +43,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: mytestrepo
-        IMAGE_TAG: "1.2"  
+        IMAGE_TAG: ${{ inputs.tags }}  
       run: |
         docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
         docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG 
