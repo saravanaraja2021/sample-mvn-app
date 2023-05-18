@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       source_dir:
-        description: 'Source Directory'
+        description: 'Model folders separted by spaces'
         required: true
         type: string
       tags:
@@ -32,7 +32,11 @@ jobs:
         IMAGE_TAG: ${{ inputs.tags }}
         ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }} 
       run: |
-        aws s3 cp ./${{ inputs.source_dir }} s3://tnsforgithubaction2/models --recursive
+        echo "model folders {{ inputs.source_dir }}" 
+        for i in "{{ inputs.source_dir }}"
+        do
+        aws s3 cp ./models/$i s3://tnsforgithubaction2/models --recursive
+        done
         docker build -t mytestrepo:$IMAGE_TAG .
         #docker login $ECR_REGISTRY/mytestrepo -u $AWS_USER -p $AWS_PASSWORD
         ls -ltra ~/.docker
