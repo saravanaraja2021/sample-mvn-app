@@ -28,6 +28,8 @@ jobs:
         aws-region: ap-south-1
     
     - name: copy to s3 and push to ecr
+      env:
+        IMAGE_TAG: ${{ inputs.tags }}  
       run: |
         aws s3 cp ./${{ inputs.source_dir }} s3://tnsforgithubaction2/models --recursive
         docker build -t mytestrepo:$IMAGE_TAG .
