@@ -30,8 +30,8 @@ jobs:
     - name: copy to s3 and push to ecr
       run: |
         aws s3 cp ./${{ inputs.source_dir }} s3://tnsforgithubaction2/models --recursive
-        docker build -t mytestrepo:$IMAGE_TAG .
+        docker build -t mytestrepo2:$IMAGE_TAG .
         aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $ECR_REGISTRY
-        docker tag mytestrepo2:$IMAGE_TAG $ECR_REGISTRY/mytestrepo:$IMAGE_TAG 
-        docker push $ECR_REGISTRY/mytestrepo:$IMAGE_TAG
+        docker tag mytestrepo2:$IMAGE_TAG $ECR_REGISTRY/mytestrepo2:$IMAGE_TAG 
+        docker push $ECR_REGISTRY/mytestrepo2:$IMAGE_TAG
       
