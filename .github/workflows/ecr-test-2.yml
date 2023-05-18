@@ -30,10 +30,12 @@ jobs:
     - name: copy to s3 and push to ecr
       env:
         IMAGE_TAG: ${{ inputs.tags }}
-        ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }} 
+        ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+        MODEL_DIR: "{{ inputs.source_dir }}"
+        
       run: |
-        echo "model folders {{ inputs.source_dir }}" 
-        for i in "{{ inputs.source_dir }}"
+        echo "model folders $MODEL_DIR" 
+        for i in $MODEL_DIR
         do
         aws s3 cp ./models/$i s3://tnsforgithubaction2/models --recursive
         done
