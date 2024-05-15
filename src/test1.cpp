@@ -1,19 +1,11 @@
 #include<iostream>
-
 using namespace std;
-
-int TestReturn(int &x, int &y)
-{
-    x = 10;
-    y = 20;
-    return x * y;
-}
-
 int main()
 {
-    int a = 4
-    int b = 2
-    cout << b << " " << a << endl;
-    TestReturn(a,b);
-    cout << b << " " << a << endl;
+	int i = 2147483647;
+	for (int y = i;y > 0;y++)
+	{
+		cout << "Hello World!";
+	}
+return 0;
 }
