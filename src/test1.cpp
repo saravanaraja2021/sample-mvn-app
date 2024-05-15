@@ -1,9 +1,19 @@
-int foo(int x)
+#include<iostream>
+
+using namespace std;
+
+int TestReturn(int &x, int &y)
 {
-	int i;
-	if(x > 0)
-	{
-		std::cout << "X is greater than 0." << std::endl;
-		i = 1;
-	}
+    x = 10;
+    y = 20;
+    return x * y;
+}
+
+int main()
+{
+    int a = 4
+    int b = 2
+    cout << b << " " << a << endl;
+    TestReturn(a,b);
+    cout << b << " " << a << endl;
 }
